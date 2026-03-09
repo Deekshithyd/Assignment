@@ -16,12 +16,10 @@ public class FoodDeliveryDB {
             Connection con = DriverManager.getConnection(url, user, password);
             Statement st = con.createStatement();
 
-            // Create Database
             st.executeUpdate("DROP DATABASE IF EXISTS FoodDeliveryDB");
             st.executeUpdate("CREATE DATABASE FoodDeliveryDB");
             st.executeUpdate("USE FoodDeliveryDB");
 
-            // Create Tables
             st.executeUpdate("CREATE TABLE Customers (" +
                     "customer_id INT PRIMARY KEY," +
                     "name VARCHAR(50)," +
@@ -50,7 +48,6 @@ public class FoodDeliveryDB {
                     "FOREIGN KEY (customer_id) REFERENCES Customers(customer_id)," +
                     "FOREIGN KEY (food_id) REFERENCES Food_Items(food_id))");
 
-            // Insert Data
             st.executeUpdate("INSERT INTO Customers VALUES" +
                     "(1,'Arjun','Chennai','9876543210')," +
                     "(2,'Ananya','Bangalore','9876543211')," +
@@ -77,7 +74,6 @@ public class FoodDeliveryDB {
 
             System.out.println("Database Created Successfully!");
 
-            // Task 1 - Display all food items
             ResultSet rs = st.executeQuery("SELECT * FROM Food_Items");
 
             System.out.println("\nFood Items:");
@@ -89,7 +85,6 @@ public class FoodDeliveryDB {
                 );
             }
 
-            // Task 2 - Food items > 200
             rs = st.executeQuery("SELECT * FROM Food_Items WHERE price > 200");
 
             System.out.println("\nFood Items Price > 200:");
@@ -97,7 +92,6 @@ public class FoodDeliveryDB {
                 System.out.println(rs.getString("food_name") + " - " + rs.getInt("price"));
             }
 
-            // Task 6 - Order by price
             rs = st.executeQuery("SELECT * FROM Food_Items ORDER BY price DESC");
 
             System.out.println("\nFood Items Sorted by Price:");
@@ -111,4 +105,5 @@ public class FoodDeliveryDB {
             e.printStackTrace();
         }
     }
+
 }
