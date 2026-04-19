@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>JS User Input</title>
+</head>
+<body>
+
+<h2>Open Console (Right Click → Inspect → Console)</h2>
+
+<script>
+
+// Q1: Basic Calculation (User Input)
+let a = Number(prompt("Enter value for a:"));
+let b = Number(prompt("Enter value for b:"));
+
+console.log("Addition:", a + b);
+console.log("Subtraction:", a - b);
+console.log("Multiplication:", a * b);
+console.log("Division:", a / b);
+
+
+// Q2: Comparison
+console.log("a > b:", a > b);
+console.log("a == b:", a == b);
+console.log("a != b:", a != b);
+
+
+// Q3: Logical Operator
+let age = Number(prompt("Enter age:"));
+let hasID = prompt("Do you have ID? (yes/no)") === "yes";
+
+if (age >= 18 && hasID) {
+    alert("Allowed");
+} else {
+    alert("Not Allowed");
+}
+
+
+// Q4: Even or Odd
+let num = Number(prompt("Enter a number:"));
+
+if (num % 2 == 0) {
+    alert("Even");
+} else {
+    alert("Odd");
+}
+
+
+// Q5: Grade System
+let marks = Number(prompt("Enter marks:"));
+
+if (marks >= 90) {
+    alert("Grade A");
+} else if (marks >= 70) {
+    alert("Grade B");
+} else if (marks >= 50) {
+    alert("Grade C");
+} else {
+    alert("Fail");
+}
+
+
+// Q6: Print Numbers
+for (let i = 1; i <= 10; i++) {
+    console.log(i);
+}
+
+
+// Q7: Sum
+let sum = 0;
+for (let i = 1; i <= 5; i++) {
+    sum += i;
+}
+console.log("Sum:", sum);
+
+
+// Q8: Table
+let table = Number(prompt("Enter number for table:"));
+
+for (let i = 1; i <= 10; i++) {
+    console.log(table + " x " + i + " = " + (table * i));
+}
+
+
+// Q9: Largest Number
+let x = Number(prompt("Enter x:"));
+let y = Number(prompt("Enter y:"));
+let z = Number(prompt("Enter z:"));
+
+if (x >= y && x >= z) {
+    alert("Largest: " + x);
+} else if (y >= x && y >= z) {
+    alert("Largest: " + y);
+} else {
+    alert("Largest: " + z);
+}
+
+
+// Q10: FizzBuzz
+for (let i = 1; i <= 20; i++) {
+    if (i % 3 == 0 && i % 5 == 0) {
+        console.log("FizzBuzz");
+    } else if (i % 3 == 0) {
+        console.log("Fizz");
+    } else if (i % 5 == 0) {
+        console.log("Buzz");
+    } else {
+        console.log(i);
+    }
+}
+
+
+// Q11: Login
+let username = prompt("Enter username:");
+let password = prompt("Enter password:");
+
+if (username === "admin" && password === "1234") {
+    alert("Login Success");
+} else {
+    alert("Invalid Credentials");
+}
+
+
+// Q12: Count Even Numbers
+let count = 0;
+for (let i = 1; i <= 20; i++) {
+    if (i % 2 == 0) count++;
+}
+console.log("Even count:", count);
+
+</script>
+
+</body>
+</html>s
