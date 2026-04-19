@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>College Event Registration</title>
+
+    <script>
+        function showSummary() {
+
+            let name = document.getElementById("name").value;
+            let email = document.getElementById("email").value;
+            let dept = document.getElementById("dept").value;
+
+            let events = [];
+            let checkboxes = document.querySelectorAll('input[name="event"]:checked');
+
+            checkboxes.forEach((cb) => {
+                events.push(cb.value);
+            });
+
+            if(events.length === 0){
+                alert("Please select at least one event");
+                return false;
+            }
+
+            document.getElementById("summary").innerHTML =
+                "<b>Name:</b> " + name + "<br>" +
+                "<b>Email:</b> " + email + "<br>" +
+                "<b>Department:</b> " + dept + "<br>" +
+                "<b>Selected Events:</b> " + events.join(", ");
+
+            return false; 
+        }
+    </script>
+
+</head>
+<body>
+
+<h2>College Event Registration</h2>
+
+<h3>Listen to Event Invitation</h3>
+<audio controls>
+    <source src="sample.mp3" type="audio/mpeg">
+</audio>
+
+<br><br>
+
+<form onsubmit="return showSummary()">
+
+Name:
+<input type="text" id="name" required placeholder="Enter your name"><br><br>
+
+Email:
+<input type="email" id="email"
+pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+required placeholder="Enter your email"><br><br>
+
+Department:
+<input type="text" id="dept" required placeholder="Enter your department"><br><br>
+
+<h4>Select Events</h4>
+<input type="checkbox" name="event" value="Dance"> Dance<br>
+<input type="checkbox" name="event" value="Coding"> Coding<br>
+<input type="checkbox" name="event" value="Singing"> Singing<br><br>
+
+Upload Performance Sample:
+<input type="file" accept=".mp3, .mp4" required><br><br>
+
+<input type="submit" value="Register">
+<input type="reset">
+
+</form>
+
+<h3>Registration Summary</h3>
+<p id="summary"></p>
+
+</body>
+</html>
